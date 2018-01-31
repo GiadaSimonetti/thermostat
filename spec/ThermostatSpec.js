@@ -9,7 +9,8 @@ describe('Feature test', function(){
   });
 
   it('sets the temperature to 20 °C by default', function(){
-    expect(thermostat.temperature()).toEqual(20);
+    console.log(thermostat._maxTemperature)
+    expect(thermostat.temperature()).toEqual(thermostat._defaultTemperature);
   });
 
   it('sets power saving ON by default', function(){
@@ -31,17 +32,28 @@ describe('Feature test', function(){
   });
 
   it('sets the temperature down 1°C using down()', function(){
-    console.log(thermostat)
     thermostat.down();
     expect(thermostat.temperature()).toEqual(19);
-    console.log('A');
   });
 
   it('raises an error if the temperature is being set < 10°C', function(){
-    thermostat.setTemperature(10);
+    thermostat.setTemperature(thermostat._minTemperature);
     expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached');
-    expect(thermostat.temperature()).toEqual(10);
+    expect(thermostat.temperature()).toEqual(thermostat._minTemperature);
   });
 
+  it('sets maximum temperature to 25°C if power saving mode is ON', function(){
+    expect(thermostat.maxTemperature()).toEqual(thermostat._maxTemperature);
+  });
+
+  it('sets power saving OFF', function(){
+    thermostat.setPowerSavingMode(false);
+    expect(thermostat.powerSavingMode()).toEqual(false);
+  });
+
+  it('sets maximum temperature to 32°C if power saving mode is OFF', function(){
+    thermostat.setPowerSavingMode(false);
+    expect(thermostat.maxTemperature()).toEqual(thermostat._powerSavingModeOffMaxTemperature);
+  });
 
 });

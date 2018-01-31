@@ -1,11 +1,17 @@
 'use strict';
 
 function Thermostat(){
-  this._temperature = 20;
+  this._defaultTemperature = 20;
+  this._minTemperature = 10;
+  this._powerSavingModeOnMaxTemperature = 25;
+  this._maxTemperature = this._powerSavingModeOnMaxTemperature;
+  this._powerSavingModeOffMaxTemperature = 32;
+  this._temperature = this._defaultTemperature;
   this._powerSavingMode = true;
-}
+};
 
 Thermostat.prototype.temperature = function () {
+  console.log(this._defaultTemperature);
   return this._temperature;
 };
 
@@ -28,7 +34,16 @@ Thermostat.prototype.down = function () {
 };
 
 Thermostat.prototype.minimumTemperature = function (temperature) {
-  if(temperature < 10) {
+  if(temperature < this._minTemperature) {
     throw new Error('Minimum temperature reached');
-  }
+  };
 };
+
+  Thermostat.prototype.maxTemperature = function () {
+    return this._maxTemperature;
+  };
+
+  Thermostat.prototype.setPowerSavingMode = function (powerSavingMode) {
+    this._powerSavingMode = powerSavingMode;
+    this._maxTemperature = powerSavingMode ? this._powerSavingModeOnMaxTemperature : this._powerSavingModeOffMaxTemperature;
+  };
