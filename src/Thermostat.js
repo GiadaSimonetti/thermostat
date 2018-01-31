@@ -1,22 +1,24 @@
 'use strict';
 
 function Thermostat(){
-  this._defaultTemperature = 20;
-  this._minTemperature = 10;
-  this._powerSavingModeOnMaxTemperature = 25;
-  this._maxTemperature = this._powerSavingModeOnMaxTemperature;
-  this._powerSavingModeOffMaxTemperature = 32;
+  this.DEFAULT_TEMPERATURE = 20;
+  this.MIN_TEMPERATURE = 10;
+  this.PSM_ON_MAX_TEMPERATURE = 25;
+  this.MAX_TEMPERATURE = this.PSM_ON_MAX_TEMPERATURE;
+  this.PSM_OFF_MAX_TEMPERATURE = 32;
+  this.MAX_ENERGY_USAGE_LIMIT = 25;
+  this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
   this.reset();
-  this._powerSavingMode = true;
+  this.PSM = true;
 };
 
 Thermostat.prototype.temperature = function () {
-  console.log(this._defaultTemperature);
+  console.log(this.DEFAULT_TEMPERATURE);
   return this._temperature;
 };
 
 Thermostat.prototype.powerSavingMode = function () {
-  return this._powerSavingMode;
+  return this.PSM;
 };
 
 Thermostat.prototype.setTemperature = function (temperature) {
@@ -34,36 +36,30 @@ Thermostat.prototype.down = function () {
 };
 
 Thermostat.prototype.minimumTemperature = function (temperature) {
-  if(temperature < this._minTemperature) {
+  if(temperature < this.MIN_TEMPERATURE) {
     throw new Error('Minimum temperature reached');
   };
 };
 
-  Thermostat.prototype.maxTemperature = function () {
-    return this._maxTemperature;
-  };
+Thermostat.prototype.maxTemperature = function () {
+  return this.MAX_TEMPERATURE;
+};
 
-  Thermostat.prototype.setPowerSavingMode = function (powerSavingMode) {
-    this._powerSavingMode = powerSavingMode;
-    this._maxTemperature = powerSavingMode ? this._powerSavingModeOnMaxTemperature : this._powerSavingModeOffMaxTemperature;
-  };
+Thermostat.prototype.setPowerSavingMode = function (powerSavingMode) {
+  this.PSM = powerSavingMode;
+  this.MAX_TEMPERATURE = powerSavingMode ? this.PSM_ON_MAX_TEMPERATURE : this.PSM_OFF_MAX_TEMPERATURE;
+};
 
-  Thermostat.prototype.reset = function () {
-    this._temperature = this._defaultTemperature;
-  };
+Thermostat.prototype.reset = function () {
+  this._temperature = this.DEFAULT_TEMPERATURE;
+};
 
-  Thermostat.prototype.currentEnergyUsage = function () {
-    return Math.floor(( Math.random() * 22) + 11);
-  };
+Thermostat.prototype.currentEnergyUsage = function () {
+  return Math.floor(( Math.random() * 22) + 11);
+};
 
-  Thermostat.prototype.currentEnergyUsageLevel = function () {
-
-    if (this.currentEnergyUsage() < 18){
-      return 'low-usage';
-    } else if (this.currentEnergyUsage() > 25) {
-      return 'high-usage';
-    } else {
-      return 'medium-usage';
-    };
-
-  };
+Thermostat.prototype.currentEnergyUsageLevel = function () {
+  if (this.currentEnergyUsage() < this.MEDIUM_ENERGY_USAGE_LIMIT) return 'low-usage';
+  if (this.currentEnergyUsage() > this.MAX_ENERGY_USAGE_LIMIT) return 'high-usage';
+  return 'medium-usage';
+};

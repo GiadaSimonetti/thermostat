@@ -9,8 +9,8 @@ describe('Feature test', function(){
   });
 
   it('sets the temperature to 20 °C by default', function(){
-    console.log(thermostat._maxTemperature)
-    expect(thermostat.temperature()).toEqual(thermostat._defaultTemperature);
+    console.log(thermostat.MAX_TEMPERATURE)
+    expect(thermostat.temperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
 
   it('sets power saving ON by default', function(){
@@ -37,13 +37,13 @@ describe('Feature test', function(){
   });
 
   it('raises an error if the temperature is being set < 10°C', function(){
-    thermostat.setTemperature(thermostat._minTemperature);
+    thermostat.setTemperature(thermostat.MIN_TEMPERATURE);
     expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached');
-    expect(thermostat.temperature()).toEqual(thermostat._minTemperature);
+    expect(thermostat.temperature()).toEqual(thermostat.MIN_TEMPERATURE);
   });
 
   it('sets maximum temperature to 25°C if power saving mode is ON', function(){
-    expect(thermostat.maxTemperature()).toEqual(thermostat._maxTemperature);
+    expect(thermostat.maxTemperature()).toEqual(thermostat.MAX_TEMPERATURE);
   });
 
   it('sets power saving OFF', function(){
@@ -53,28 +53,14 @@ describe('Feature test', function(){
 
   it('sets maximum temperature to 32°C if power saving mode is OFF', function(){
     thermostat.setPowerSavingMode(false);
-    expect(thermostat.maxTemperature()).toEqual(thermostat._powerSavingModeOffMaxTemperature);
+    expect(thermostat.maxTemperature()).toEqual(thermostat.PSM_OFF_MAX_TEMPERATURE);
   });
 
   it('sets the temperature to the default value on reset', function(){
     thermostat.setTemperature(22);
     thermostat.reset();
-    expect(thermostat.temperature()).toEqual(thermostat._defaultTemperature);
+    expect(thermostat.temperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
-
-  // it('returns the current energy usage which is a random number: 11 <= number <= 32', function(){
-  //   var r
-  //   var mx = 0;
-  //   var mn = 100;
-  //
-  //   for (var i=1; i<1000; i++){
-  //     r = thermostat.currentEnergyUsage();
-  //     if (r > mx){mx = r };
-  //     if (r < mn){mn = r };
-  //   }
-  //   expect(mn).toEqual(11);
-  //   expect(mx).toEqual(32);
-  // });
 
   it('returns the current energy usage which is a random number: 11 <= number <= 32', function(){
     var r
