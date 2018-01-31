@@ -56,4 +56,39 @@ describe('Feature test', function(){
     expect(thermostat.maxTemperature()).toEqual(thermostat._powerSavingModeOffMaxTemperature);
   });
 
+  it('sets the temperature to the default value on reset', function(){
+    thermostat.setTemperature(22);
+    thermostat.reset();
+    expect(thermostat.temperature()).toEqual(thermostat._defaultTemperature);
+  });
+
+  it('returns the current energy usage which is a random number: 11 <= number <= 32', function(){
+    var r
+    var mx = 0;
+    var mn = 100;
+
+    for (var i=1; i<1000; i++){
+      r = thermostat.currentEnergyUsage();
+      if (r > mx){mx = r };
+      if (r < mn){mn = r };
+    }
+    expect(mn).toEqual(11);
+    expect(mx).toEqual(32);
+  });
+
+  it('returns \'low-usage\' if the current energy usage < 18', function(){
+    spyOn(thermostat, 'currentEnergyUsage').and.returnValue(11);
+    expect(thermostat.currentEnergyUsageLevel()).toEqual('low-usage');
+  });
+
+  it('returns \'medium-usage\' if the current energy between 18 and 25', function(){
+    spyOn(thermostat, 'currentEnergyUsage').and.returnValue(22);
+    expect(thermostat.currentEnergyUsageLevel()).toEqual('medium-usage');
+  });
+
+  it('returns \'high-usage\' if the current energy > 25', function(){
+    spyOn(thermostat, 'currentEnergyUsage').and.returnValue(28);
+    expect(thermostat.currentEnergyUsageLevel()).toEqual('high-usage');
+  });
+
 });
