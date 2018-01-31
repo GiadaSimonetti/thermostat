@@ -24,9 +24,6 @@ Thermostat.prototype.up = function () {
 
 Thermostat.prototype.down = function () {
   this.minimumTemperature(this._temperature-1);
-  // if(this._temperature <= 10) {
-  //   throw new Error('Minimum temperature reached');
-  // }
   this._temperature -= 1;
 };
 
