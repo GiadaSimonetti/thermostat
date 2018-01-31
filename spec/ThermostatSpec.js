@@ -62,18 +62,26 @@ describe('Feature test', function(){
     expect(thermostat.temperature()).toEqual(thermostat._defaultTemperature);
   });
 
+  // it('returns the current energy usage which is a random number: 11 <= number <= 32', function(){
+  //   var r
+  //   var mx = 0;
+  //   var mn = 100;
+  //
+  //   for (var i=1; i<1000; i++){
+  //     r = thermostat.currentEnergyUsage();
+  //     if (r > mx){mx = r };
+  //     if (r < mn){mn = r };
+  //   }
+  //   expect(mn).toEqual(11);
+  //   expect(mx).toEqual(32);
+  // });
+
   it('returns the current energy usage which is a random number: 11 <= number <= 32', function(){
     var r
-    var mx = 0;
-    var mn = 100;
-
     for (var i=1; i<1000; i++){
       r = thermostat.currentEnergyUsage();
-      if (r > mx){mx = r };
-      if (r < mn){mn = r };
+      expect(r >= 11 && r <= 32).toBeTruthy();
     }
-    expect(mn).toEqual(11);
-    expect(mx).toEqual(32);
   });
 
   it('returns \'low-usage\' if the current energy usage < 18', function(){
