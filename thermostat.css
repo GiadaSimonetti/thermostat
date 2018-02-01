@@ -58,3 +58,9 @@ button:hover {
 #max-temperature-message {
   display: none;
 }
+
+#current-energy-usage {
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%;
+}

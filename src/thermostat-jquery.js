@@ -4,6 +4,8 @@ $(document).ready(function(){
 
   $("#temperature-display").html(thermostat.temperature() + '&deg;C');
 
+  updateCurrentEnergy()
+
   $("#up-button").click(function() {
     if (thermostat.PSM && thermostat.temperature() === thermostat.PSM_ON_MAX_TEMPERATURE) {
       $("#max-temperature-message").css("display", "block");
@@ -46,5 +48,19 @@ $(document).ready(function(){
     $("#temperature-display").html(thermostat.temperature() + '&deg;C');
     $("#min-temperature-message").css("display", "");
     $("#max-temperature-message").css("display", "");
+  }
+
+  function updateCurrentEnergy() {
+    var usageLevel = thermostat.currentEnergyUsageLevel()
+    if (usageLevel === 'low-usage') {
+      $("#usage-text").text("Low");
+      $("#current-energy-usage").css("background", "green")
+    } else if (usageLevel === 'medium-usage') {
+      $("#usage-text").text("Medium");
+      $("#current-energy-usage").css("background", "yellow")
+    } else {
+      $("#usage-text").text("High");
+      $("#current-energy-usage").css("background", "red")
+    }
   }
 });
