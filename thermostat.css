@@ -43,3 +43,11 @@ button:hover {
   color: red;
   font-size: 25px;
 }
+
+#power-saving-mode {
+
+}
+
+#min-temperature-message {
+  display: none;
+}

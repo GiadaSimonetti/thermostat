@@ -7,16 +7,22 @@ $(document).ready(function(){
   $("#up-button").click(function() {
     thermostat.up()
     $("#temperature-display").html(thermostat.temperature() + '&deg;C');
+    $("#min-temperature-message").css("display", "");
   });
 
   $("#down-button").click(function() {
-    thermostat.down()
-    $("#temperature-display").html(thermostat.temperature() + '&deg;C');
+    if (thermostat.temperature() <= thermostat.MIN_TEMPERATURE) {
+      $("#min-temperature-message").css("display", "block");
+    } else {
+      thermostat.down()
+      $("#temperature-display").html(thermostat.temperature() + '&deg;C');
+    }
   });
 
   $("#reset_button").click(function() {
     thermostat.reset()
     $("#temperature-display").html(thermostat.temperature() + '&deg;C');
+    $("#min-temperature-message").css("display", "");
   });
 
   $("#power_saving_button").click(function(){
@@ -27,6 +33,7 @@ $(document).ready(function(){
     }
     thermostat.PSM = !thermostat.PSM
   });
+
 
 
 
