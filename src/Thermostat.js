@@ -13,7 +13,6 @@ function Thermostat(){
 };
 
 Thermostat.prototype.temperature = function () {
-  console.log(this.DEFAULT_TEMPERATURE);
   return this._temperature;
 };
 
