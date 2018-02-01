@@ -15,16 +15,23 @@ body{
    background-attachment: fixed;
 }
 
+.content {
+  padding-top: 50px;
+}
+
 .temperature_button {
-  background: radial-gradient(#ff4d4d, #cc0000, #b30000);
-  color: white;
+  background: radial-gradient(#80d4ff, #006699, #00334d);
+  border: 1px solid #00334d;
+  box-shadow: 5px 10px 8px #888888;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #00334d;
+  color: #e6ffff;
   border-radius: 100%;
   width: 100px;
   height: 100px;
   /* margin: 10px, 20px; */
   padding: 10px;
   cursor: pointer;
-  font-size: 50px;
+  font-size: 60px;
 }
 
 button:hover {
