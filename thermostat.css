@@ -44,10 +44,10 @@ button:hover {
   font-size: 25px;
 }
 
-#power-saving-mode {
-
+#min-temperature-message {
+  display: none;
 }
 
-#min-temperature-message {
+#max-temperature-message {
   display: none;
 }
