@@ -4,17 +4,19 @@
 <title>Thermostat</title>
 <link rel="stylesheet" href="thermostat.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 <script
 src="https://code.jquery.com/jquery-3.3.1.js"
 integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/5d80a0eb69.js"></script>
 <script src="src/Thermostat.js"></script>
 <script src="src/thermostat-jquery.js"></script>
 <script src="src/thermostat-ajax.js"></script>
 </head>
 <body>
 <div class="content">
-  <h1>Thermostat</h1>
+  <h1><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i> Thermostat</h1>
 
   <p>Current temperature: <span id="temperature-display"></span></p>
   <p class="min-temperature-message" id="min-temperature-message">Minimum temperature reached!!!!!!!</p>
@@ -23,6 +25,8 @@ crossorigin="anonymous"></script>
     <button class="temperature_button" id="up-button" type="button" name="up"><strong>+</strong></button>
     <button class="temperature_button" id="down-button" type="button" name="down"><strong>-</strong></button>
   </div>
+
+  <br>
   <div class="reset_button">
     <button id="reset_button" type="button" name="reset"><strong>Reset</strong></button>
   </div>
