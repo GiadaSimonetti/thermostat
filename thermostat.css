@@ -35,7 +35,7 @@ body{
 }
 
 button:hover {
-    background-color: yellow;
+    background-color: #80d4ff;
 }
 
 #up-button {
@@ -60,7 +60,9 @@ button:hover {
 }
 
 #current-energy-usage {
-  margin-right: 25%;
-  margin-left: 25%;
-  width: 50%;
+  margin-right: 30%;
+  margin-left: 30%;
+  width: 40%;
 }
+
+#power_saving_button, #reset_button {}

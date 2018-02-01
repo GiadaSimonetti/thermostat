@@ -10,6 +10,7 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
 <script src="src/Thermostat.js"></script>
 <script src="src/thermostat-jquery.js"></script>
+<script src="src/thermostat-ajax.js"></script>
 </head>
 <body>
 <div class="content">
@@ -38,6 +39,19 @@ crossorigin="anonymous"></script>
       <span id="usage-text"></span>
     </p>
   </div>
+
+  <div class="weather">
+    <form class="wather-dropdown" action="index.html" method="post">
+      <select id="cities" name="cities">
+        <option select="selected" value="london">London</option>
+        <option value="rome">Rome</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="paris">Paris</option>
+      </select>
+    </form>
+    <p id="weather-display"></p>
+  </div>
+
 </div>
 
 </body>
