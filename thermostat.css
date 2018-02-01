@@ -1,0 +1,39 @@
+body{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 200%;
+  margin: 100px, auto;
+  background: #ADA996;
+  background: -webkit-linear-gradient(to top, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  background: linear-gradient(to top, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  /* background-repeat: no-repeat;
+  background-size: 100%; */
+  background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 100% top;
+   background-attachment: fixed;
+}
+
+.temperature_button {
+  background: radial-gradient(#ff4d4d, #cc0000, #b30000);
+  color: white;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  /* margin: 10px, 20px; */
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover { 
+    background-color: yellow;
+}
+
+#up-button {
+  margin-right: 30px;
+}
+
+#down-button {
+  margin-left: 30px;
+}
