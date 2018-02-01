@@ -9,10 +9,32 @@
 <body>
 <div class="content">
   <h1>Thermostat</h1>
+  <h2 id="temperature-display"></h2>
   <p>Temperature</p>
-  <button class="temperature_button" id="up-button" type="button" name="up"><strong>+</strong></button>
-  <button class="temperature_button" id="down-button" type="button" name="down"><strong>-</strong></button>
+  <div class="temperature_buttons">
+    <button class="temperature_button" id="up-button" type="button" name="up"><strong>+</strong></button>
+    <button class="temperature_button" id="down-button" type="button" name="down"><strong>-</strong></button>
+  </div>
+  <div class="reset_buttom">
+    <button id="reset_button" type="button" name="reset"><strong>Reset</strong></button>
+  </div>
 
+  <div class="power-saving-mode">
+    <p>
+      On
+    </p>
+    <p>
+      Off
+    </p>
+    <button id="power_saving_button" type="button" name="power-save"><strong>Power Saving Mode</strong></button>
+  </div>
+
+  <div class="usage">
+    <h2>Current energy usage:</h2>
+    <p>
+      #####
+    </p>
+  </div>
 </div>
 
 </body>
