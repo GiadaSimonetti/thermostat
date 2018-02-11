@@ -68,7 +68,7 @@ h1 {
   width: 20%;
 }
 
-#power_saving_button, #reset_button {
+#power_saving_button {
   border-radius: 15px;
   padding: 10px;
   background-color: #80d4ff;
@@ -78,6 +78,22 @@ h1 {
   cursor: pointer;
 }
 
+#reset_button{
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #80d4ff;
+  color: #00334d;
+  border: 1px solid #00334d;
+  box-shadow: 5px 10px 8px #888888;
+  cursor: pointer;
+}
+
+#min-temperature-message {
+  color: red;
+}
+#max-temperature-message {
+  color: red;
+}
 
 button:hover {
   background-color: #80d4ff;
